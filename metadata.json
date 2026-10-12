@@ -1,0 +1,6 @@
+{
+  "name": "RempliTrans - Transport Routier de Marchandises au Maroc",
+  "description": "RempliTrans est une entreprise marocaine spécialisée dans le transport routier de marchandises entre les villes du Maroc. Fiabilité, flexibilité et service professionnel.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
