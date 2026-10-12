@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Language, PageId } from '../types';
 import { translations } from '../translations';
 import { ShieldCheck, MapPin, Sliders, UserCheck, ArrowRight, ArrowLeft, Truck } from 'lucide-react';
@@ -10,7 +10,6 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ currentLanguage, onNavigate }) => {
   const t = translations[currentLanguage];
-  const [imgError, setImgError] = useState(false);
   const isRtl = currentLanguage === 'ar';
   const ArrowIcon = isRtl ? ArrowLeft : ArrowRight;
 
@@ -84,38 +83,15 @@ export const Hero: React.FC<HeroProps> = ({ currentLanguage, onNavigate }) => {
 
           </div>
 
-          {/* Right Column: Hero Visual Asset (Truck on Moroccan road) */}
-          <div className="lg:col-span-5">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-900 aspect-16/10 sm:aspect-16/9 lg:aspect-4/3">
-              {!imgError ? (
-                <img
-                  src="/images/hero_remplitrans_truck.jpg"
-                  alt={currentLanguage === 'fr' ? 'Camion de transport RempliTrans Scania sur route marocaine' : 'شاحنة نقل رمبلي ترانس على الطرق المغربية'}
-                  className="w-full h-full object-cover object-center transform hover:scale-102 transition-transform duration-700"
-                  referrerPolicy="no-referrer"
-                  onError={() => setImgError(true)}
-                />
-              ) : (
-                <div className="w-full h-full flex flex-col items-center justify-center p-8 bg-gradient-to-tr from-slate-950 to-blue-950 text-center">
-                  <Truck className="w-16 h-16 text-blue-400 mb-3 opacity-80" />
-                  <p className="text-sm font-semibold text-slate-200">RempliTrans Maroc</p>
-                  <p className="text-xs text-slate-400 mt-1">Flotte de camions de transport routier interurbain</p>
-                </div>
-              )}
-
-              {/* Scrim Overlay with Information Badge */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-
-              <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-slate-950/80 backdrop-blur-md border border-slate-800/80 flex items-center justify-between text-xs text-slate-200">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-blue-500 shrink-0" />
-                  <span className="font-medium">
-                    {currentLanguage === 'fr' ? 'Liaisons régulières interurbaines' : 'رحلات منتظمة بين المدن المغربية'}
-                  </span>
-                </div>
-                <span className="text-slate-400 font-mono">Casablanca · Tanger · Marrakech</span>
-              </div>
-
+          {/* Right Column: Hero Visual Asset */}
+          <div className="lg:col-span-5 flex items-center justify-center">
+            <div className="w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-900">
+              <img
+                src="/images/Upscale_image_quality_2K_20261006150418.jpg"
+                alt="RempliTrans Transport Routier"
+                className="w-full h-auto block object-contain"
+                loading="eager"
+              />
             </div>
           </div>
 
